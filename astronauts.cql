@@ -1,4 +1,4 @@
-CREATE KEYSPACE ldi WITH replication = {'class': 'SimpleStrategy', 'dc1': '1'}  AND durable_writes = true;
+CREATE KEYSPACE ldi WITH replication = {'class': 'SimpleStrategy', 'datacenter1': '1'}  AND durable_writes = true;
 
 CREATE TABLE ldi.logins_by_user (
     user_id text,
