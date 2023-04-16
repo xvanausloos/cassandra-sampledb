@@ -1,6 +1,6 @@
-CREATE KEYSPACE packt WITH replication = {'class': 'NetworkTopologyStrategy', 'dc1': '1'}  AND durable_writes = true;
+CREATE KEYSPACE ldi WITH replication = {'class': 'NetworkTopologyStrategy', 'dc1': '1'}  AND durable_writes = true;
 
-CREATE TABLE packt.logins_by_user (
+CREATE TABLE ldi.logins_by_user (
     user_id text,
     login_datetime timestamp,
     origin_ip text,
@@ -12,7 +12,7 @@ INSERT INTO logins_by_user (user_id, login_datetime, origin_ip) VALUES ('aploetz
 INSERT INTO logins_by_user (user_id, login_datetime, origin_ip) VALUES ('aploetz','2017-06-02 13:23:11','192.168.0.105');
 INSERT INTO logins_by_user (user_id, login_datetime, origin_ip) VALUES ('aploetz','2017-06-03 09:04:55','192.168.0.101');
 
-CREATE TABLE packt.astronauts (
+CREATE TABLE ldi.astronauts (
 name text,
 year int,
 group int,
@@ -28,7 +28,7 @@ spacewalk_hours int,
 missions text,
 PRIMARY KEY (name));
 
-CREATE TABLE packt.astronauts_by_group (
+CREATE TABLE ldi.astronauts_by_group (
 name text,
 year int,
 group int,
@@ -45,7 +45,7 @@ missions text,
 PRIMARY KEY (group,name))
 WITH CLUSTERING ORDER BY (name asc);
 
-COPY packt.astronauts (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
+COPY ldi.astronauts (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
 
-COPY packt.astronauts_by_group (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
+COPY ldi.astronauts_by_group (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
 
