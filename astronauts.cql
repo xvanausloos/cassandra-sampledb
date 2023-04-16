@@ -45,7 +45,7 @@ missions text,
 PRIMARY KEY (group,name))
 WITH CLUSTERING ORDER BY (name asc);
 
-COPY ldi.astronauts (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
+COPY ldi.astronauts (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM 'astronauts.csv' WITH HEADER=true;
 
-COPY ldi.astronauts_by_group (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM '~/Documents/Packt/astronauts.csv' WITH HEADER=true;
+COPY ldi.astronauts_by_group (name,year,group,status,dob,birthplace,gender,alma_mater,spaceflights,spaceflight_hours,spacewalks,spacewalk_hours,missions) FROM 'astronauts.csv' WITH HEADER=true;
 
